@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>18Cash Game Credit</title>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .package {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 15px;
+        }
+
+        .package h2 {
+            margin-top: 0;
+        }
+
+        .stars {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #2481cc;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎮 18Cash Game Credit</h1>
+
+    <div class="subtitle">
+        Purchase Game Credits with Telegram Stars ⭐
+    </div>
+
+
+    <div class="package">
+        <h2>RM18 Game Credit</h2>
+
+        <div class="stars">
+            ⭐ 100
+        </div>
+
+        <button onclick="buyPackage('buy_100')">
+            Buy Now
+        </button>
+    </div>
+
+
+    <div class="package">
+        <h2>RM68 Game Credit</h2>
+
+        <div class="stars">
+            ⭐ 500
+        </div>
+
+        <button onclick="buyPackage('buy_500')">
+            Buy Now
+        </button>
+    </div>
+
+
+    <div class="package">
+        <h2>RM138 Game Credit</h2>
+
+        <div class="stars">
+            ⭐ 1000
+        </div>
+
+        <button onclick="buyPackage('buy_1000')">
+            Buy Now
+        </button>
+    </div>
+
+</div>
+
+
+<script>
+
+const tg = window.Telegram.WebApp;
+
+tg.ready();
+
+tg.expand();
+
+
+function buyPackage(packageName) {
+
+    tg.sendData(packageName);
+
+}
+
+</script>
+
+
+</body>
+</html>
