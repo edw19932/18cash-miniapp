@@ -118,49 +118,7 @@
 
 
 <script>
-
-const tg = window.Telegram.WebApp;
-
-tg.ready();
-
-tg.expand();
-
-async function buyPackage(packageName) {
-
-    tg.showAlert("Button works: " + packageName);
-    
-    try {
-        const response = await fetch(
-            "https://18cash-bot-production.up.railway.app/create-invoice",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    package: packageName
-                })
-            }
-        );
-
-        const data = await response.json();
-
-        if (!response.ok || !data.ok) {
-            throw new Error(data.error || "Unable to create invoice");
-        }
-
-        tg.openInvoice(data.invoice_url, function(status) {
-            if (status === "paid") {
-                tg.showAlert("Payment successful! Please check the bot for your redeem code.");
-            }
-
-            if (status === "failed") {
-                tg.showAlert("Payment failed. Please try again.");
-            }
-        });
-
-    } catch (error) {
-        console.error(error);
-        tg.showAlert("Unable to start payment: " + error.message);
-    }
+function buyPackage(packageName) {
+    alert("CLICK OK: " + packageName);
 }
+</script>
