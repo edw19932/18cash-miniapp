@@ -119,8 +119,6 @@
 
 <script>
 async function buyPackage(packageName) {
-    alert("Button OK. Now testing Railway: " + packageName);
-
     try {
         const response = await fetch(
             "https://18cash-bot-production.up.railway.app/create-invoice",
@@ -135,17 +133,19 @@ async function buyPackage(packageName) {
             }
         );
 
-        const text = await response.text();
+        const data = await response.json();
 
-        alert(
-            "Railway status: " +
-            response.status +
-            "\n\nResponse:\n" +
-            text
-        );
+        if (!response.ok || !data.ok) {
+            alert("Create invoice failed");
+            return;
+        }
+
+        alert("Invoice created. Opening Telegram payment...");
+
+        window.location.href = data.invoice_url;
 
     } catch (error) {
-        alert("FETCH ERROR:\n" + error.message);
+        alert("ERROR: " + error.message);
     }
 }
 </script>
